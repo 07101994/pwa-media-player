@@ -27,6 +27,12 @@ module.exports = env => {
       new CopyPlugin([
         { from: "src/pwa-assets/", to: "./", ignore: [".DS_Store"] }
       ]),
+      new CopyPlugin([
+        { from: "src/css/", to: "./", ignore: [".DS_Store"] }
+      ]),
+      new CopyPlugin([
+        { from: "src/libraries/", to: "./", ignore: [".DS_Store"] }
+      ]),
       new WorkboxPlugin.InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "sw.js"

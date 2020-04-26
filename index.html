@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="video-js.css" rel="stylesheet" />
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -113,25 +114,28 @@
 
         <main id="screens">
             <div id="screen-homepage" class="screen">
-                <div class="spinner-container">
-                    <svg
-                      class="spinner"
-                      width="40px"
-                      height="40px"
-                      viewBox="0 0 66 66"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        class="path"
-                        fill="none"
-                        stroke-width="6"
-                        stroke-linecap="round"
-                        cx="33"
-                        cy="33"
-                        r="30"
-                      ></circle>
-                    </svg>
-                  </div>
+                <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
+
+  <script src="video.js"></script>
             </div>
             <div id="screen-player" class="screen">
                 <div class="spinner-container">
