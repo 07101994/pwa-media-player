@@ -27,5 +27,8 @@
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
     "workbox-webpack-plugin": "^4.2.0"
+  },
+  "dependencies": {
+    "videojs-chromecast": "^2.0.8"
   }
 }

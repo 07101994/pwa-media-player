@@ -114,18 +114,18 @@
 
         <main id="screens">
             <div id="screen-homepage" class="screen">
+                <input type="file" accept="video/mp4" onChange="media_file_changed()"/>
                 <video
     id="my-video"
     class="video-js"
     controls
     preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
+    style="height:100vh;width:100vw"
+    poster="android-chrome-512x512.png"
     data-setup="{}"
   >
-    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+    <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" /> -->
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a
       web browser that
@@ -173,6 +173,23 @@
                 if (callNow) func.apply(this, args);
               };
             };
+
+            const media_file_changed = () => {
+                const filePicker = document.querySelector('input');
+
+                if (!filePicker || !filePicker.files 
+                    || filePicker.files.length <= 0) {
+                    reject('No file selected.');
+                    return;
+                }
+                const myFile = filePicker.files[0];
+
+                const player = videojs('my-video');
+                player.src([
+        {type: "video/mp4", src: URL.createObjectURL(myFile)}
+    ]);
+            };
+
             const screens = document.querySelector("#screens");
             const navbar = document.querySelector("#navbar");
       
